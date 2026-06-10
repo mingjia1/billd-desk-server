@@ -21,11 +21,13 @@ export const createRedisPubSub = async () => {
       REDIS_CONFIG.socket.port
     }服务器的redis PubSub${flag ? '成功' : '失败'}!`;
 
-  pubClient.on('error', (err) => {
+  const handleRedisPubSubError = (err) => {
     console.log(chalkERROR(msg(false)));
     console.log(err);
-    process.exit(1);
-  });
+  };
+
+  pubClient.on('error', handleRedisPubSubError);
+  subClient.on('error', handleRedisPubSubError);
 
   console.log(
     chalkINFO(
