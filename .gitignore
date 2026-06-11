@@ -10,3 +10,4 @@ node_modules
 !/upload/README.md
 !/webm/README.md
 .codex-server.log
+.codex-server.err.log
