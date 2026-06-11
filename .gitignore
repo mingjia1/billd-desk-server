@@ -9,3 +9,4 @@ node_modules
 !/public/README.md
 !/upload/README.md
 !/webm/README.md
+.codex-server.log

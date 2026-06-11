@@ -122,5 +122,10 @@ class DeskUserController {
     successHandler({ ctx, data: res });
     await next();
   }
+  async latest(ctx: ParameterizedContext, next) {
+    const res = await deskVersionService.findLatest();
+    successHandler({ ctx, data: res });
+    await next();
+  }
 }
 export default new DeskUserController();

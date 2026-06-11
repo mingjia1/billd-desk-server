@@ -95,6 +95,16 @@ class DeskVersionService {
   }
 
   /** 修改desk版本 */
+  async findLatest() {
+    const result = await deskVersionModel.findOne({
+      order: [
+        ['created_at', 'desc'],
+        ['id', 'desc'],
+      ],
+    });
+    return result;
+  }
+
   async update(data: IDeskVersion) {
     const { id } = data;
     const data2 = filterObj(data, ['id']);
